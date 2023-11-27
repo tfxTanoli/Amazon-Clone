@@ -1,13 +1,12 @@
-import react, { useState } from 'react';
+// import react, { useState } from 'react';
 import { sendMessageViaAxios } from '../Service/api';
 
 function Test(){
-    const name = "Muhammad Usman";
-    const id = 130;    
+    const productName = "T-Shirts";  
 
     function handleMessageSend(){
         console.log("button clicked");
-        sendMessageViaAxios(name,id);
+        sendMessageViaAxios(productName);
     }
     return(
     <div>

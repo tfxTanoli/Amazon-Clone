@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
 
 const productStructure = new mongoose.Schema({
-    id : Number,
-    price : Number,
-    image : String,
-    description : String,
-    quantity : Number,
-    category : ["shirts","lights","toys","households"]
+    productName : String,
+    productId : Number
 });
 
-const productModel = mongoose.Model("Product",productStructure);
+ const productModel = mongoose.Model('product',productStructure);
 
-export default productModel;
+ export default productModel;
