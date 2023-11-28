@@ -8,3 +8,7 @@ export const sendMessageViaAxios = async (productData) => {
     // console.log(productData.productId);
    return await axios.post(`${url}/`,productData);
 }
+
+export const getProduct = async () =>{
+    return await axios.get(`${url}/`);
+}

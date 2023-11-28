@@ -1,8 +1,15 @@
 import productModel from "../models/products.js";
 
-export const getProduct = (req, res) => {
-    res.write("Home page loading...");
-    res.end();
+export const getProduct = async (req, res) => {
+    // res.write("Home page loading...");
+    // res.end();
+    try {
+        const productInformation = await productModel.find();
+        res.json(productInformation);
+        console.log("Data Retrieved Successfully...");
+    } catch (error) {
+        console.log("Data Not Retrieved...");
+    }
 }
 
 export const createProduct = async (req, res) => {

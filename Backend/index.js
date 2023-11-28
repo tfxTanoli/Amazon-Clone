@@ -7,7 +7,7 @@ import { createProduct, getProduct } from "./controllers/products.js";
 const app = express();
 
 
-app.get("/", getProduct)
+app.get("/", getProduct);
 
 const url = "mongodb+srv://usman:tfxUsman124@cluster0.sroacgg.mongodb.net/?retryWrites=true&w=majority";
 
