@@ -1,15 +1,38 @@
-export const getProduct = (req, res) =>{
+import productModel from "../models/products.js";
+
+export const getProduct = (req, res) => {
     res.write("Home page loading...");
     res.end();
 }
 
-export const createProduct = (req , res) =>{
+export const createProduct = async (req, res) => {
     console.log("post api reached...");
-    const product = req.body.productName;  
 
-    console.log(product);
-   
+    const productName = req.body.productName ? req.body.productName.toString() : '';
+    const id = req.body.productId ? req.body.productId.toString() : '';
+    const description = req.body.productDescription ? req.body.productDescription.toString() : '';
+    const price = req.body.price ? req.body.price.toString() : '';
+    const image = req.body.image ? req.body.image.toString() : '';
 
+    console.log(productName);
+    console.log(id);
+    console.log(description);
+    console.log(price);
+    console.log(image);
 
+    const newProduct = new productModel({
+        productTitle: productName,
+        productId: id,
+        productDescription: description,
+        price: price,
+        image: image
+    });
 
-}
+    // Handle saving newProduct to the database or other operations here
+    try {
+        await newProduct.save();
+        res.json(newProduct);
+    } catch (error) {
+        console.log("Not Saved...");
+    }
+};
