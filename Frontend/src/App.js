@@ -1,20 +1,20 @@
-// import { Route, Routes } from "react-router-dom";
-// import Landingpage from "./Components/LandingPage"; 
-// import AdminPanel from "./Components/AdminPanel";
-// import AddItems from "./Components/Additems";
-// import Cart from "./Components/Cart";
-// import DeleteItem from "./Components/DeleteItem";
-// import UpdateItem from "./Components/UpdateItem";
-// import ViewItem from "./Components/ViewItem";
-// import BadgeState from "./Context/BadgeState";
-// import ContentState from "./Context/ContentState";
-// import CustomerService from "./Components/CustomerService";
-// import About from "./Components/About";
-// import Contact from "./Components/Contact";
-// import Login from "./Components/Login";
-// import PrivacyPolicy from "./Components/PrivacyPolicy";
+import { Route, Routes } from "react-router-dom";
+import Landingpage from "./Components/LandingPage"; 
+import AdminPanel from "./Components/AdminPanel";
+import AddItems from "./Components/Additems";
+import Cart from "./Components/Cart";
+import DeleteItem from "./Components/DeleteItem";
+import UpdateItem from "./Components/UpdateItem";
+import ViewItem from "./Components/ViewItem";
+import BadgeState from "./Context/BadgeState";
+import ContentState from "./Context/ContentState";
+import CustomerService from "./Components/CustomerService";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+import Login from "./Components/Login";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 
-import Test from "./Components/Test";
+// import Test from "./Components/Test";
 
 
 
@@ -26,10 +26,10 @@ function App() {
 
     
     <div>
-      <Test/>
+      {/* <Test/> */}
 
     
-    {/* <ContentState>
+    <ContentState>
     <BadgeState>
       <Routes> 
          <Route path="/landingpage" element={<Landingpage />} /> 
@@ -52,7 +52,7 @@ function App() {
         <Route path = "/view" element = {<ViewItem/>}></Route>
       </Routes>
       </BadgeState>
-      </ContentState> */}
+      </ContentState>
     </div>
   );
 }

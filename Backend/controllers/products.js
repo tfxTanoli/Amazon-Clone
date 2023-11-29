@@ -17,9 +17,9 @@ export const createProduct = async (req, res) => {
 
     const productName = req.body.productName ? req.body.productName.toString() : '';
     const id = req.body.productId ? req.body.productId.toString() : '';
-    const description = req.body.productDescription ? req.body.productDescription.toString() : '';
+    const description = req.body.description ? req.body.description.toString() : '';
     const price = req.body.price ? req.body.price.toString() : '';
-    const image = req.body.image ? req.body.image.toString() : '';
+    const image = req.body.imagePath ? req.body.imagePath.toString() : '';
 
     console.log(productName);
     console.log(id);
@@ -38,6 +38,7 @@ export const createProduct = async (req, res) => {
     // Handle saving newProduct to the database or other operations here
     try {
         await newProduct.save();
+        console.log("Data Saved In DB...");
         res.json(newProduct);
     } catch (error) {
         console.log("Not Saved...");
