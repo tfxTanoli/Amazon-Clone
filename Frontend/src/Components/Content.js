@@ -56,6 +56,9 @@ import Navbar from './Navbar';
             <Link to = "/products" style={{color:"white",textDecoration:"none"}}>
             <p style={{ margin: "0 20px", marginBottom: "32px",marginTop:"10px" }}>Products</p>
             </Link>
+            <Link to = "/signup" style={{textDecoration:"none",color:"white"}}>
+            <p style={{ margin: "0 20px", marginBottom: "32px",marginTop:"10px" }}>Signup</p>
+           </Link>
           </div>
         </div>
         <div className="background-image" style={{ backgroundImage: `url("kitchen.jpg")`, backgroundSize: "cover", height: "500px" }}>

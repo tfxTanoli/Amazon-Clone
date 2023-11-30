@@ -13,6 +13,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
+import Signup from "./Components/Signup";
 
 // import Test from "./Components/Test";
 
@@ -42,6 +43,7 @@ function App() {
         <Route path = "/contact" element={<Contact/>}></Route>
         <Route path = "/sign-in" element={<Login/>}></Route>
         <Route path = "/privacy-policies" element={<PrivacyPolicy/>}></Route>
+        <Route path="/signup" element = {<Signup/>}></Route>
        </Routes> 
       <Routes>
         

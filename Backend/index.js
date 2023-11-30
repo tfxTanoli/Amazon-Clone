@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import express from 'express';
 import router from "./routes/products.js";
+import userRouter from "./routes/users.js";
 
 const app = express();
 
@@ -19,3 +20,4 @@ mongoose.connect(url).then(() => {
     app.use(bodyParser.json({extended : true}));
     app.use(bodyParser.urlencoded({extended:true}));
     app.use("/",router);
+    app.use("/signup",userRouter);
