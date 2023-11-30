@@ -1,10 +1,10 @@
 import productModel from "../models/products.js";
 
 export const getProduct = async (req, res) => {
-    // res.write("Home page loading...");
-    // res.end();
+        console.log("get api ping at backend ...");
     try {
         const productInformation = await productModel.find();
+        console.log(productInformation);
         res.json(productInformation);
         console.log("Data Retrieved Successfully...");
     } catch (error) {
@@ -21,12 +21,6 @@ export const createProduct = async (req, res) => {
     const price = req.body.price ? req.body.price.toString() : '';
     const image = req.body.imagePath ? req.body.imagePath.toString() : '';
 
-    console.log(productName);
-    console.log(id);
-    console.log(description);
-    console.log(price);
-    console.log(image);
-
     const newProduct = new productModel({
         productTitle: productName,
         productId: id,
@@ -37,8 +31,8 @@ export const createProduct = async (req, res) => {
 
     // Handle saving newProduct to the database or other operations here
     try {
-        await newProduct.save();
-        console.log("Data Saved In DB...");
+       const result =  await newProduct.save();
+        console.log("Data Saved In DB...",result);
         res.json(newProduct);
     } catch (error) {
         console.log("Not Saved...");

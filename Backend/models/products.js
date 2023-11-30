@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const productStructure = new mongoose.Schema({
-    productName : String,
+    productTitle : String,
     productId : Number,
     productDescription : String,
     price : Number,

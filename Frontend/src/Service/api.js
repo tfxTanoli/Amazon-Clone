@@ -9,5 +9,6 @@ export const sendMessageViaAxios = async (productData) => {
 }
 
 export const getProduct = async () =>{
+    console.log("get api reached ");
     return await axios.get(`${url}/`);
 }
