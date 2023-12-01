@@ -1,22 +1,31 @@
-    import React, {   createContext , useContext, useEffect } from 'react';
+    import React, {   createContext , useContext, useEffect, useState } from 'react';
     import './Content.css';
     import { Link } from 'react-router-dom';
+    import {getProduct} from '../Service/api';
     // import Navbar from './Navbar';
 
     import { badgeContext } from '../Context/BadgeState';
-  import { testContext } from '../Context/ContentState';
+  // import { testContext } from '../Context/ContentState';
 import Navbar from './Navbar';
     
     export const contentContext = createContext();
     function Content(props) {
-      
+      const [products , setProducts] = useState([]); 
+
+      useEffect(()=>{
+        showProducts();
+      },[]);
+
+      const showProducts = async () =>{
+        const result = await getProduct();
+        if(result){
+        console.log("data fetch hogya hai",result);
+        setProducts(result.data);
+      }
+      }
       const {badgeCount,setBadgeCount} = useContext(badgeContext);
       
       const handleAddToCart = () =>{
-        
-        <contentContext.Provider value={{cards}}>
-          {props.children}
-        </contentContext.Provider>
       // alert(category);
         const updatedBadgeCount = (badgeCount+1);
         setBadgeCount(updatedBadgeCount);
@@ -31,7 +40,7 @@ import Navbar from './Navbar';
         localStorage.setItem('badgeCount', badgeCount);
       }, [badgeCount]);
 
-    const {cards,setCards} = useContext(testContext);
+    // const {cards,setCards} = useContext(testContext);
 
 
 
@@ -66,15 +75,15 @@ import Navbar from './Navbar';
         <div className='content' style={{ backgroundColor: "#e2e7e6" }}>
         {/* ... (rest of your code) */}
         <div className='product-section' style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
-          {cards.map((card) => (
-            <div key={card.id} className={`card${card.id}`} style={{ marginTop: "10px", height: "400px", width: "23%", backgroundColor: "white" }}>
+          {products.map((product) => (
+            <div key={product.productId} className={`card${product.productId}`} style={{ marginTop: "10px", height: "400px", width: "23%", backgroundColor: "white" }}>
               <div className='card-content' style={{ padding: "20px 0px 15px", marginLeft: "1rem", marginRight: "1rem" }}>
-                <h2>{card.title}</h2>
-                <div className={`card${card.id}-image`}>
-                  <img src={card.image} alt={card.title} style={{ height: "250px", width: "100%", objectFit: "cover" }} />
+                <h2>{product.productTitle}</h2>
+                <div className={`card${product.productId}-image`}>
+                  <img src={product.image} alt={product.productTitle} style={{ height: "250px", width: "100%", objectFit: "cover" }} />
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <p style={{ marginTop:"30px" }}>Price: {card.price}</p>
+          <p style={{ marginTop:"30px" }}>Price: ${product.price}</p>
           <button className='cart-button btn btn-outline-dark' onClick={() => handleAddToCart()} style={{ width: "40%", padding: "10px", borderColor: "lightblue", backgroundColor: "lightblue", color: "white",marginRight:"20px" }}>
             Add to Cart
           </button>

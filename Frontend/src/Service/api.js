@@ -18,9 +18,13 @@ export const deleteProduct = async (productId) => {
     return await axios.delete(`${url}/${productId}`);
   };
 
-export const updateProduct = async () =>{
-    console.log("put api at frontend");
-    return await axios.put(`${url}/`);
+  export const updateProduct = async (productId, updatedProductData) => {
+    console.log("updateProduct Api called, Product ID =", productId + " and Product Data : ",updatedProductData);
+    return await axios.put(`${url}/${productId}`, updatedProductData);
+};
+export const fetchProductData = async (productId) => {
+    console.log("fetch Product Data Api called in Update.js , Product id : ",productId);
+    return await axios.get(`${url}/${productId}`);
 }
 
 export const addUser = async (formData) => {
