@@ -1,0 +1,27 @@
+.nav-bar {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgba(37, 32, 64, 255);
+    color: #7859d6;
+    display: flex;
+    height: 50px;
+  }
+  .logo {
+    width: 20%;
+    color: white;
+  }
+  .shop,
+  .settings,
+  .support {
+    width: 15%;
+    display: flex;
+    align-items: center;
+  }
+  .search-container {
+    width: 45%;
+    padding: 10px;
+  }
+  .search-div {
+    width: 30%;
+    height: 25px;
+  }
