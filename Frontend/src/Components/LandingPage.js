@@ -3,15 +3,12 @@
 import Content from "./Content";
 import Footer from "../Footer";
 
-function Landingpage(){
-
-   
-    return(
-        <div>
-        <Content/>
-        <Footer/>
-        </div>
-
-    )
+function Landingpage() {
+  return (
+    <div >
+      <Content />
+      <Footer />
+    </div>
+  );
 }
 export default Landingpage;

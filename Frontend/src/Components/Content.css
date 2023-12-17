@@ -1,58 +1,184 @@
 .card {
-    margin-top: 10px;
-    border: 2px solid black;
-    height: 400px;
-    background-color: white;
-    display: flex;
+  margin-top: 10px;
+  border: 2px solid black;
+  height: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 20px 0 15px;
+}
+
+.card h2 {
+  margin-top: 10px;
+}
+
+.card-image {
+  height: 300px;
+  background-size: cover;
+}
+
+/* Media Queries */
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .product-section {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .product-section {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  .product-section {
+    flex-wrap: wrap;
+  }
+
+  h2{
+    font-size: smaller;
+  }
+
+  .cart-button {
+    width: fit-content;
+    height: fit-content;
+    font-size: medium;
+  }
+
+  .card {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .product-section {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 20px 0 15px;
   }
-  
+
+  .card {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+    padding: 15px 0;
+  }
+
   .card h2 {
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 1.5rem;
   }
-  
-  .card-image {
-    height: 300px;
-    background-size: cover;
+
+  .card-image img {
+    height: auto;
+    max-width: 100%;
   }
-  
-  /* Media Queries */
-  /* Mobile Styles */
-  @media (max-width: 600px) {
-    .product-section {
-      flex-direction: column;
-    }
-  
-    .card {
-      width: 90%;
-    }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card {
+    width: calc(50% - 20px);
+    margin: 10px;
   }
-  
-  /* Tablet Styles */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    .product-section {
-      flex-wrap: wrap;
-    }
-  
-    .card {
-      width: calc(50% - 20px);
-      margin: 10px;
-    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  .card {
+    width: calc(33.33% - 20px);
+    margin: 10px;
   }
-  
-  /* Desktop Styles */
-  @media (min-width: 1025px) {
-    .product-section {
-      flex-wrap: wrap;
-    }
-  
-    .card {
-      width: calc(33.33% - 20px);
-      margin: 10px;
-    }
+}
+
+@media (max-width: 600px) {
+  /* Adjustments for smaller screens */
+  .product-section {
+    flex-direction: column;
+    align-items: center;
   }
+
+  .card {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+    padding: 15px 0;
+  }
+
+  .card h2 {
+    margin-top: 5px;
+    font-size: 1.5rem;
+  }
+
+  .card-image img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 499px) {
+  /* Adjustments for screens less than 500px */
+  .product-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+    padding: 15px 0;
+  }
+
+  .card h2 {
+    margin-top: 5px;
+    font-size: 1.5rem;
+  }
+
+  .card-image img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .cart-button {
+    width: 100%; /* Adjust width to fill container */
+    padding: 8px; /* Modify padding for smaller screens */
+    height: 40px; /* Adjust height as needed */
+    font-size: 14px; /* Change font size for smaller screens */
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .cart-button {
+    width: 45%; /* Adjust width for tablets */
+    padding: 10px; /* Modify padding */
+    height: 45px; /* Adjust height */
+    font-size: 16px; /* Change font size */
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  .cart-button {
+    width: 30%; /* Adjust width for desktop */
+    padding: 12px; /* Modify padding */
+    height: 50px; /* Adjust height */
+    font-size: 18px; /* Change font size */
+  }
+}
