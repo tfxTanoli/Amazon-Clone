@@ -33,8 +33,8 @@ function App() {
     <ContentState>
     <BadgeState>
       <Routes> 
-         <Route path="/landingpage" element={<Landingpage />} /> 
-         <Route path = "/" element = {<AdminPanel/>}>
+         <Route path="/" element={<Landingpage />} /> 
+         <Route path = "/admin" element = {<AdminPanel/>}>
         </Route>
         <Route path = "/addItems" element = {<AddItems/>}></Route>
         <Route path = "/update" element = {<UpdateItem/>}></Route>
