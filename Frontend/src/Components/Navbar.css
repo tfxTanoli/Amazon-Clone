@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .nav-bar {
+    /* Adjustments for smaller screens */
+    height: 120px;
+    /* ... other adjustments */
+    /* Example change for smaller screens */
+  }
+  /* Additional responsive styles as needed */
+}

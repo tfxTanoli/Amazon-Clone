@@ -1,4 +1,4 @@
-// import React, { useState } from 'react';
+import "./Navbar.css";
 import { Link } from 'react-router-dom';
 
 import { badgeContext } from '../Context/BadgeState';
@@ -8,7 +8,7 @@ function Navbar() {
     const {badgeCount,setBadgeCount} = useContext(badgeContext);
 
     return (
-        <div className="nav-bar" style={{ fontFamily: "Arial", display: "flex", alignItems: "center", height: "90px", backgroundColor: "#0f1111", color: "white", justifyContent: "space-between", padding: "0 20px" }}>
+        <div className="nav-bar container-fluid" style={{ fontFamily: "Arial", display: "flex", alignItems: "center", height: "90px", backgroundColor: "#0f1111", color: "white", justifyContent: "space-between", padding: "0 20px" }}>
                 <div className="nav-logo" style={{ height: "60px", width: "100px" }}>
                     <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
                         <div className="logo" style={{ height: "50px", width: "100%", backgroundImage: `url("logo.png")`, backgroundSize: "cover" }}>
