@@ -31,3 +31,14 @@ export const addUser = async (formData) => {
     console.log("signup post api reached");
     return await axios.post(`${url}/signup`, formData);
 }
+
+export const login = async (loginData) =>{
+    console.log(loginData);
+    return await axios.get(`${url}/sign-in`,loginData);
+}
+
+// export const addGoogleUser = async (googleEmail , googlePictureLink ,isGoogleAccount) =>{
+//     console.log("Google post api reached");
+//     console.log(googleEmail + " "+ googlePictureLink);
+//     // return await axios.post(`${url}/signup`,googleEmail , googlePictureLink ,isGoogleAccount);
+// }

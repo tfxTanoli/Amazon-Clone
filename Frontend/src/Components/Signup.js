@@ -1,30 +1,25 @@
 import React, { useState } from "react";
 import { addUser } from "../Service/api";
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
-const onSuccess =(res) => {
-  console.log("Login Successful", res.profileObj);
-  alert("Success");
-}
-
-const onFailure = (res) => {
-    if (res.error === "popup_closed_by_user") {
-      console.log("User closed the popup");
-    } else {
-      console.log("Login Failed", res);
-    }
-    alert("Failed");
-  };
 
 const SignUpForm = () => {
-  const ClientId =
-    "245710499192-erdq10a4b4hsps773m0i4nkmorl6n3je.apps.googleusercontent.com";
+
+  
+  let isGoogleAccount = false;
+    
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  // const [googleFormData , setGoogleFormData] = useState({
+  //   username:"",  //email
+  //   paasword:""
+  // })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -122,12 +117,17 @@ const SignUpForm = () => {
           Sign Up
         </button>
         <GoogleLogin
-          clientId={ClientId}
-          buttonText="Login"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
+          onSuccess={ async (credentialResponse) => {
+            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+            isGoogleAccount = true;
+            const googleEmail = credentialResponseDecoded.email;
+            const googlePicture = credentialResponseDecoded.picture;
+            //  await addGoogleUser(googleEmail,googlePicture,isGoogleAccount);
+            console.log(credentialResponseDecoded);
+          }}
+          onError={() => {
+            console.log("Login Failed");
+          }}
         />
       </form>
     </div>

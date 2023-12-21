@@ -1,96 +1,81 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Footer from '../Footer';
+import { login } from '../Service/api';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [loginData, setloginData] = useState({
+    email: '',
+    password: '',
+  });
 
-  const formStyle = {
-    maxWidth: '400px',
-    margin: '0 auto',
-    marginTop: '200px',
-    padding: '20px',
-    backgroundColor: '#fff',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setloginData({ ...loginData, [name]: value });
   };
 
-  const labelStyle = {
-    fontSize: '1rem',
-  };
-
-  const handleSignin = () => {
-    // Check if the email and password match your criteria
-    if (email === 'usman5194999@gmail.com' && password === 'tfxUsman124') {
-      setMessage('Sign in successful');
-      
-      // Clear the email and password fields on success
-    //   setEmail('');
-    //   setPassword('');
-    } else {
-      setMessage('Sign in failed. Please check your credentials.');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Call signUp function from your API service
+      await login(loginData);
+      // Display alert upon successful signup
+      alert('Login Successfully');
+      // Additional logic for signup process can be added here
+      console.log('Login Data:', loginData);
+    } catch (error) {
+      // Handle signup failure or API errors here
+      console.error('Login failed:');
+      // You can also display an error alert if needed
+      // alert('Signup failed. Please try again.');
     }
   };
 
+  const inputStyles = {
+    width: '100%',
+    padding: '8px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+  };
+
+  const buttonStyles = {
+    padding: '10px',
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  };
+
   return (
-    <div>
-      <div>
-        <Navbar/>
-      </div>
-    <form style={formStyle}>
-      <div className="form-outline mb-4">
-        <input
-          type="email"
-          id="form1Example1"
-          className="form-control"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label className="form-label" htmlFor="form1Example1" style={labelStyle}>
-          Email address
-        </label>
-      </div>
-
-      <div className="form-outline mb-4">
-        <input
-          type="password"
-          id="form1Example2"
-          className="form-control"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label className="form-label" htmlFor="form1Example2" style={labelStyle}>
-          Password
-        </label>
-      </div>
-
-      <div className="row mb-4">
-        <div className="col d-flex justify-content-center">
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="form1Example3"  />
-            <label className="form-check-label" htmlFor="form1Example3">
-              Remember me
-            </label>
-          </div>
+    <div className='mt-5' style={{ maxWidth: '400px', margin: '0 auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', backgroundColor: '#f9f9f9' }}>
+      <h2 style={{ marginTop: '20px' }}>Login</h2>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', marginTop: '30px' }}>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="email" style={{ fontWeight: 'bold' }}>Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={loginData.email}
+            onChange={handleChange}
+            required
+            style={inputStyles}
+          />
         </div>
-
-        <div className="col">
-          <a href="#!">Forgot password?</a>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="password" style={{ fontWeight: 'bold' }}>Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={loginData.password}
+            onChange={handleChange}
+            required
+            style={inputStyles}
+          />
         </div>
-      </div>
-
-      <button type="button" className="btn btn-primary btn-block" onClick={handleSignin}>
-        Sign in
-      </button>
-
-      {message && <p>{message}</p>}
-    </form>
-
-   
-      <Footer/>
-   
+        <button type="submit" style={buttonStyles}>Login</button>
+      </form>
     </div>
   );
 };

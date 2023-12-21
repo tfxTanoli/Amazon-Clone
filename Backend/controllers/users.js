@@ -6,21 +6,23 @@ export const addUser = async (req , res) =>{
 
     // const name = req.body.username;
     // const email = req.body.email;
-    // const pass = req.body.password;
+    // const pass = req.body.password;z
 
     const { username, email, password } = req.body;
 
-    console.log(password);
+    // const existingUser = userModel.find({email : email});
+
+    // console.log(password);
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password,salt);
     console.log(hashedPassword);
     
-
     const newUser = new userModel({
         name : username,
         email : email,
         password : hashedPassword
     });
+
 
     // Handle saving newProduct to the database or other operations here
     try {
