@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const url = "https://react-project-backend-three.vercel.app";
+// const url = "https://react-project-backend-three.vercel.app";
+
+const url = "https://localhost:5000";
 
 export const sendMessageViaAxios = async (productData) => {
   console.log("axios api reached..");
