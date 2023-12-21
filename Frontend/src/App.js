@@ -14,6 +14,7 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Signup from "./Components/Signup";
+import axios from "axios";
 
 // import Test from "./Components/Test";
 

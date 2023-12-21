@@ -23,7 +23,7 @@ mongoose.connect(url).then(() => {
 
 app.use(
   cors({
-    origin: "https://amazon2-ecommerce.netlify.app",
+    origin: "",
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })

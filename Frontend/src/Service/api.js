@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 // const url = "http://localhost:5000";
-const url = "https://react-project-lb1o.vercel.app/";
+// const url = "https://react-project-lb1o.vercel.app/";
+
+const url = "https://react-project-backend-virid.vercel.app";
 
 
 export const sendMessageViaAxios = async (productData) => {
