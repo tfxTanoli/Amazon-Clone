@@ -31,3 +31,7 @@ export const addUser = async (formData) => {
     console.log("signup post api reached");
     return await axios.post(`${url}/signup`, formData);
 }
+
+export const login = async (loginData) =>{
+    return await axios.get(`${url}/sign-in`,loginData);
+}

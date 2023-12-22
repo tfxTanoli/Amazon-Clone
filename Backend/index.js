@@ -2,8 +2,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 import express from 'express';
-import router from "./routes/products.js";
+import adminRouter from "./routes/cruds.js";
 import userRouter from "./routes/users.js";
+import loginRouter from "./routes/sign-in.js";
+import router from "./routes/products.js";
 
 const app = express();
 
@@ -19,5 +21,7 @@ mongoose.connect(url).then(() => {
     app.use(cors());
     app.use(bodyParser.json({extended : true}));
     app.use(bodyParser.urlencoded({extended:true}));
+    app.use("/admin",adminRouter);
     app.use("/",router);
     app.use("/signup",userRouter);
+    app.use("/sign-in",loginRouter);

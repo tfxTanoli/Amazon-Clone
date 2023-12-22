@@ -1,0 +1,35 @@
+li{
+    margin-bottom: 3px;
+    margin-left: 8px;
+    list-style: none;
+  } 
+  .sidebar {
+    margin-top: 1px;
+    margin-right: 1px;
+    height: 94vh;
+    background-color: #1f1e3e;
+    /* background-color: rgba(37,32,64,255); */
+    color: #fff; /* Change text color to white for better contrast */
+    padding-top: 20px; /* Add padding for better spacing from the top */
+    font-family: Arial, sans-serif; /* Use a professional font */
+    font-size: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0; /* Add vertical padding for each list item */
+    cursor: pointer; /* Add pointer cursor for better UX */
+  }
+  
+  .sidebar ul li i {
+    margin-right: 10px; /* Add some space between the icon and text */
+    vertical-align: middle; /* Align icon vertically */
+  }
+  .Link{
+    text-decoration: none;
+    color: #fff;
+  }
