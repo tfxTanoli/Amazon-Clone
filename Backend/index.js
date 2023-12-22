@@ -22,15 +22,6 @@ mongoose.connect(url).then(() => {
   });
 });
 
-
-
-// app.use(
-//   cors({
-//     origin: "https://adorable-valkyrie-b23b22.netlify.app",
-//     methods: ["POST", "GET", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,4 +29,3 @@ app.use("/admin", adminRouter);
 app.use("/", router);
 app.get("/sign-in", loginUser);
 app.post("/signup", addUser);
->>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
