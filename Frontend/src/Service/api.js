@@ -32,6 +32,16 @@ export const addUser = async (formData) => {
     return await axios.post(`${url}/signup`, formData);
 }
 
+export const addGoogleUser = async (googleObj) =>{
+    console.log("Add google user : ",googleObj);
+    axios.post(`${url}/google/Signup`,googleObj);
+}
+
+// export const addGoogleUser = async (email, picture, isGoogle) => {
+//     console.log("google post api reached");
+//     return await axios.post(`${url}/signup/${isGoogle}`, { email, picture, isGoogle }); // Send email, picture, and isGoogle in the request body
+// }
+
 export const login = async (loginData) =>{
     return await axios.get(`${url}/sign-in`,loginData);
 }

@@ -6,6 +6,9 @@ import adminRouter from "./routes/cruds.js";
 import userRouter from "./routes/users.js";
 import loginRouter from "./routes/sign-in.js";
 import router from "./routes/products.js";
+import { addUser  } from "./controllers/users.js";
+import { loginUser } from "./controllers/sign-in.js";
+import { addGoogleUserInDb } from "./controllers/googleUser.js";
 
 const app = express();
 
@@ -23,5 +26,7 @@ mongoose.connect(url).then(() => {
     app.use(bodyParser.urlencoded({extended:true}));
     app.use("/admin",adminRouter);
     app.use("/",router);
-    app.use("/signup",userRouter);
-    app.use("/sign-in",loginRouter);
+    app.post("/signup", addUser);
+    app.get("/sign-in", loginUser);
+
+    app.post("/google/Signup", addGoogleUserInDb);

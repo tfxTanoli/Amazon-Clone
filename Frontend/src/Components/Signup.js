@@ -1,25 +1,15 @@
 import React, { useState } from "react";
-import { addUser } from "../Service/api";
+import { addUser, addGoogleUser } from "../Service/api";
 import { GoogleLogin } from "@react-oauth/google";
-import {jwtDecode} from 'jwt-decode';
-
+import { jwtDecode } from "jwt-decode";
 
 const SignUpForm = () => {
-
-  
-  let isGoogleAccount = false;
-    
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-
-  // const [googleFormData , setGoogleFormData] = useState({
-  //   username:"",  //email
-  //   paasword:""
-  // })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,16 +18,34 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addUser(formData);
-    // You can add your form submission logic here, such as sending data to the server
-    console.log("Form submitted with data:", formData);
-    // Reset the form after submission
+    const response = await addUser(formData);
+
+    if (response && response.token) {
+      localStorage.setItem("token", response.token);
+    }
+
     setFormData({
       username: "",
       email: "",
       password: "",
       confirmPassword: "",
     });
+  };
+
+  const handleGoogleSignup = async (credentialResponse) => {
+    const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+    const email = credentialResponseDecoded.email;
+    const name = credentialResponseDecoded.name;
+    const googleObj = {
+      name: name,
+      email: email,
+    };
+
+    console.log("Google Object:", googleObj);
+
+    // await addGoogleUser(googleEmail, googlePicture, isGoogleAccount);
+    console.log(name, email);
+    const response = await addGoogleUser(googleObj);
   };
 
   return (
@@ -117,14 +125,7 @@ const SignUpForm = () => {
           Sign Up
         </button>
         <GoogleLogin
-          onSuccess={ async (credentialResponse) => {
-            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
-            isGoogleAccount = true;
-            const googleEmail = credentialResponseDecoded.email;
-            const googlePicture = credentialResponseDecoded.picture;
-            //  await addGoogleUser(googleEmail,googlePicture,isGoogleAccount);
-            console.log(credentialResponseDecoded);
-          }}
+          onSuccess={handleGoogleSignup}
           onError={() => {
             console.log("Login Failed");
           }}

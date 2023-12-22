@@ -20,7 +20,7 @@ function Sidebar({ onMenuItemClick }) {
       <div className="container">
         <Link to="#" className="navbar-brand mt-4">
           <h5 className='text-primary fw-bold ms-3' style={{ fontFamily: "poppins", fontSize: "30px" }}>
-            Wrogn
+            Amazon 2.0
           </h5>
         </Link>
       </div>
