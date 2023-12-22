@@ -11,12 +11,20 @@
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
+<<<<<<< HEAD
     "json-web-token": "^3.2.0",
+=======
+    "gapi-script": "^1.2.0",
+>>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-icons": "^4.12.0",
+=======
+    "react-google-login": "^5.2.2",
+>>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
