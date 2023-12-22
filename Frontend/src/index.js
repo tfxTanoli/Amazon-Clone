@@ -11,11 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
   <BrowserRouter>
-<<<<<<< HEAD
   <GoogleOAuthProvider clientId='862283356474-vjmaofa7ut602067a0i6laihtntndnkp.apps.googleusercontent.com'>
-=======
-  <GoogleOAuthProvider clientId="862283356474-vjmaofa7ut602067a0i6laihtntndnkp.apps.googleusercontent.com">
->>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
   <App />
   </GoogleOAuthProvider>
   </BrowserRouter>

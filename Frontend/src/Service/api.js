@@ -36,7 +36,6 @@ export const fetchProductData = async (productId) => {
 };
 
 export const addUser = async (formData) => {
-<<<<<<< HEAD
     console.log("signup post api reached");
     return await axios.post(`${url}/signup`, formData);
 }
@@ -51,22 +50,7 @@ export const addGoogleUser = async (googleObj) =>{
 //     return await axios.post(`${url}/signup/${isGoogle}`, { email, picture, isGoogle }); // Send email, picture, and isGoogle in the request body
 // }
 
-export const login = async (loginData) =>{
-    return await axios.get(`${url}/sign-in`,loginData);
-}
-=======
-  console.log("signup post api reached");
-  return await axios.post(`${url}/signup`, formData);
-};
-
 export const login = async (loginData) => {
   console.log(loginData);
   return await axios.get(`${url}/sign-in`, loginData);
 };
-
-// export const addGoogleUser = async (googleEmail , googlePictureLink ,isGoogleAccount) =>{
-//     console.log("Google post api reached");
-//     console.log(googleEmail + " "+ googlePictureLink);
-//     // return await axios.post(`${url}/signup`,googleEmail , googlePictureLink ,isGoogleAccount);
-// }
->>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f

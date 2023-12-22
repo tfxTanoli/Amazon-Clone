@@ -7,13 +7,13 @@ export const loginUser = async (req, res) => {
     try {
         const user = await userModel.findOne({ email });
 
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
 
->>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
+// >>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
         const verifiedPassword = bcrypt.compare(password, user.password);
 
         if (verifiedPassword) {
@@ -26,14 +26,11 @@ export const loginUser = async (req, res) => {
         }
 
     } catch (error) {
-<<<<<<< HEAD
+// <<<<<<< HEAD
         // console.log("Error:", error);
         // return res.status(500).json({ message: "Internal server error" });
     }
 };
-=======
-        console.log("Error:", error);
-        return res.status(500).json({ message: "Internal server error" });
-    }
-};
->>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
+// =======
+    
+// >>>>>>> bdfb609cc4ad6053a25c77e546c3884553e7295f
